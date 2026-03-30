@@ -5,7 +5,7 @@ export const FEED_CONFIGS: Record<CategorySlug, FeedConfig> = {
     slug: "gundem",
     label: "Gündem",
     feedUrls: [
-      "https://www.gazeteduvar.com.tr/export/rss",
+      "https://www.gazeteduvar.com.tr/rss/gundem",
       "https://www.sozcu.com.tr/feeds-rss-category-gundem",
     ],
   },
