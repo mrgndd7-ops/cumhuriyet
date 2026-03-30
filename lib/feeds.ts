@@ -4,42 +4,45 @@ export const FEED_CONFIGS: Record<CategorySlug, FeedConfig> = {
   gundem: {
     slug: "gundem",
     label: "Gündem",
-    feedUrl: "https://www.cumhuriyet.com.tr/rss/son_dakika.xml",
+    feedUrls: [
+      "https://www.gazeteduvar.com.tr/export/rss",
+      "https://www.sozcu.com.tr/feeds-rss-category-gundem",
+    ],
   },
   siyaset: {
     slug: "siyaset",
     label: "Siyaset",
-    feedUrl: "https://www.cumhuriyet.com.tr/rss/siyaset.xml",
+    feedUrls: ["https://www.sozcu.com.tr/feeds-rss-category-siyaset"],
   },
   ekonomi: {
     slug: "ekonomi",
     label: "Ekonomi",
-    feedUrl: "https://www.cumhuriyet.com.tr/rss/ekonomi.xml",
+    feedUrls: ["https://www.sozcu.com.tr/feeds-rss-category-ekonomi"],
   },
   dunya: {
     slug: "dunya",
     label: "Dünya",
-    feedUrl: "https://www.cumhuriyet.com.tr/rss/dunya.xml",
+    feedUrls: ["https://www.sozcu.com.tr/feeds-rss-category-dunya"],
   },
   yasam: {
     slug: "yasam",
     label: "Yaşam",
-    feedUrl: "https://www.cumhuriyet.com.tr/rss/yasam.xml",
+    feedUrls: ["https://www.sozcu.com.tr/feeds-rss-category-yasam"],
   },
   "kultur-sanat": {
     slug: "kultur-sanat",
     label: "Kültür & Sanat",
-    feedUrl: "https://www.cumhuriyet.com.tr/rss/kultur-sanat.xml",
+    feedUrls: ["https://www.gazeteduvar.com.tr/export/rss"],
   },
   yazarlar: {
     slug: "yazarlar",
     label: "Yazarlar",
-    feedUrl: "https://www.cumhuriyet.com.tr/rss/yazarlar.xml",
+    feedUrls: ["https://www.gazeteduvar.com.tr/export/rss"],
   },
   analiz: {
     slug: "analiz",
     label: "Analiz",
-    feedUrl: "https://www.cumhuriyet.com.tr/rss/dunya.xml",
+    feedUrls: ["https://www.gazeteduvar.com.tr/export/rss"],
   },
 };
 

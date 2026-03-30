@@ -17,7 +17,7 @@ const parser = new Parser<ParsedFeed, RSSItem>({
   },
 });
 
-const REVALIDATE_SECONDS = 3600;
+export const REVALIDATE_SECONDS = 3600;
 
 async function fetchFeed(feedUrl: string): Promise<RSSItem[]> {
   try {
@@ -27,6 +27,11 @@ async function fetchFeed(feedUrl: string): Promise<RSSItem[]> {
     console.error(`[rss] Failed to fetch feed: ${feedUrl}`, error);
     return [];
   }
+}
+
+async function fetchAllFeeds(feedUrls: string[]): Promise<RSSItem[]> {
+  const results = await Promise.all(feedUrls.map(fetchFeed));
+  return results.flat();
 }
 
 function mapRSSItemToArticle(
@@ -68,6 +73,21 @@ function mapRSSItemToArticle(
   };
 }
 
+function deduplicateBySlug(articles: Article[]): Article[] {
+  const seen = new Set<string>();
+  return articles.filter((article) => {
+    if (seen.has(article.slug)) return false;
+    seen.add(article.slug);
+    return true;
+  });
+}
+
+function sortByDate(articles: Article[]): Article[] {
+  return articles.sort(
+    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  );
+}
+
 export async function getArticlesByCategory(
   categorySlug: CategorySlug,
   limit?: number
@@ -78,15 +98,16 @@ export async function getArticlesByCategory(
   const category: Category = {
     slug: config.slug,
     label: config.label,
-    feedUrl: config.feedUrl,
+    feedUrls: config.feedUrls,
   };
 
-  const items = await fetchFeed(config.feedUrl);
+  const items = await fetchAllFeeds(config.feedUrls);
   const articles = items
     .map((item) => mapRSSItemToArticle(item, category))
     .filter((article): article is Article => article !== null);
 
-  return limit ? articles.slice(0, limit) : articles;
+  const sorted = sortByDate(deduplicateBySlug(articles));
+  return limit ? sorted.slice(0, limit) : sorted;
 }
 
 export async function getHomepageArticles(): Promise<
@@ -112,8 +133,7 @@ export async function getHomepageArticles(): Promise<
 }
 
 export async function getLatestArticles(limit = 10): Promise<Article[]> {
-  const gundemArticles = await getArticlesByCategory("gundem", limit);
-  return gundemArticles;
+  return getArticlesByCategory("gundem", limit);
 }
 
 export async function getArticleBySlug(
@@ -123,5 +143,3 @@ export async function getArticleBySlug(
   const articles = await getArticlesByCategory(categorySlug);
   return articles.find((a) => a.slug === slug) ?? null;
 }
-
-export { REVALIDATE_SECONDS };

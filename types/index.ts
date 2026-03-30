@@ -30,13 +30,13 @@ export type CategorySlug =
 export interface Category {
   slug: CategorySlug;
   label: string;
-  feedUrl: string;
+  feedUrls: string[];
 }
 
 export interface FeedConfig {
   slug: CategorySlug;
   label: string;
-  feedUrl: string;
+  feedUrls: string[];
 }
 
 export interface HeroArticle extends Article {
