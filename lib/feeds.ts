@@ -20,7 +20,10 @@ export const FEED_CONFIGS: Record<CategorySlug, FeedConfig> = {
   ekonomi: {
     slug: "ekonomi",
     label: "Ekonomi",
-    feedUrls: ["https://www.sozcu.com.tr/feeds-rss-category-ekonomi"],
+    feedUrls: [
+      "https://www.birgun.net/rss/kategori/ekonomi-9",
+      "https://www.sozcu.com.tr/feeds-rss-category-ekonomi",
+    ],
   },
   dunya: {
     slug: "dunya",
