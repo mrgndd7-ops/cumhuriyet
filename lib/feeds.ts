@@ -38,7 +38,10 @@ export const FEED_CONFIGS: Record<CategorySlug, FeedConfig> = {
   "kultur-sanat": {
     slug: "kultur-sanat",
     label: "Kültür & Sanat",
-    feedUrls: ["https://www.gazeteduvar.com.tr/export/rss"],
+    feedUrls: [
+      "https://www.birgun.net/rss/kategori/kultur-sanat-11",
+      "https://www.gazeteduvar.com.tr/rss/kultur-sanat",
+    ],
   },
   yazarlar: {
     slug: "yazarlar",
