@@ -32,7 +32,7 @@ export const FEED_CONFIGS: Record<CategorySlug, FeedConfig> = {
   },
   yasam: {
     slug: "yasam",
-    label: "Yaşam",
+    label: "Yaşam & Toplum",
     feedUrls: ["https://www.sozcu.com.tr/feeds-rss-category-yasam"],
   },
   "kultur-sanat": {
