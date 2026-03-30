@@ -28,7 +28,7 @@ export const FEED_CONFIGS: Record<CategorySlug, FeedConfig> = {
   dunya: {
     slug: "dunya",
     label: "Dünya",
-    feedUrls: ["https://www.sozcu.com.tr/feeds-rss-category-dunya"],
+    feedUrls: ["https://www.gazeteduvar.com.tr/rss/dunya"],
   },
   yasam: {
     slug: "yasam",
