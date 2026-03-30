@@ -12,7 +12,10 @@ export const FEED_CONFIGS: Record<CategorySlug, FeedConfig> = {
   siyaset: {
     slug: "siyaset",
     label: "Siyaset",
-    feedUrls: ["https://www.sozcu.com.tr/feeds-rss-category-siyaset"],
+    feedUrls: [
+      "https://www.gazeteduvar.com.tr/rss/politika",
+      "https://www.birgun.net/rss/kategori/siyaset-8",
+    ],
   },
   ekonomi: {
     slug: "ekonomi",
