@@ -10,8 +10,7 @@ const FOOTER_LINKS = {
   ],
   "Kültür & Analiz": [
     { label: "Kültür & Sanat", href: "/kultur-sanat" },
-    { label: "Yazarlar", href: "/yazarlar" },
-    { label: "Analiz", href: "/analiz" },
+{ label: "Analiz", href: "/analiz" },
   ],
   Kurumsal: [
     { label: "Hakkımızda", href: "/hakkimizda" },

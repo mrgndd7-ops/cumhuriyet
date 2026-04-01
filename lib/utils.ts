@@ -72,7 +72,6 @@ export function isValidCategorySlug(slug: string): slug is CategorySlug {
     "dunya",
     "yasam",
     "kultur-sanat",
-    "yazarlar",
     "analiz",
   ];
   return validSlugs.includes(slug as CategorySlug);
