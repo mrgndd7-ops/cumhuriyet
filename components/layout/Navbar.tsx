@@ -9,7 +9,6 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Dünya", href: "/dunya", categorySlug: "dunya" },
   { label: "Yaşam", href: "/yasam", categorySlug: "yasam" },
   { label: "Kültür & Sanat", href: "/kultur-sanat", categorySlug: "kultur-sanat" },
-  { label: "Yazarlar", href: "/yazarlar", categorySlug: "yazarlar" },
   { label: "Analiz", href: "/analiz", categorySlug: "analiz" },
 ];
 

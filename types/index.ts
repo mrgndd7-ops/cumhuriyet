@@ -24,7 +24,6 @@ export type CategorySlug =
   | "dunya"
   | "yasam"
   | "kultur-sanat"
-  | "yazarlar"
   | "analiz";
 
 export interface Category {

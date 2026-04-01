@@ -43,11 +43,6 @@ export const FEED_CONFIGS: Record<CategorySlug, FeedConfig> = {
       "https://www.gazeteduvar.com.tr/rss/kultur-sanat",
     ],
   },
-  yazarlar: {
-    slug: "yazarlar",
-    label: "Yazarlar",
-    feedUrls: ["https://www.gazeteduvar.com.tr/export/rss"],
-  },
   analiz: {
     slug: "analiz",
     label: "Analiz",
@@ -62,6 +57,5 @@ export const CATEGORY_ORDER: CategorySlug[] = [
   "dunya",
   "yasam",
   "kultur-sanat",
-  "yazarlar",
   "analiz",
 ];
