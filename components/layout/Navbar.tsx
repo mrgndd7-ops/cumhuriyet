@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { NavItem } from "@/types";
-import { getMarketData } from "@/lib/market";
+import { MarketTicker } from "@/components/ui/MarketTicker";
 
 const NAV_ITEMS: NavItem[] = [
   { label: "Anasayfa", href: "/" },
@@ -17,8 +17,7 @@ interface NavbarProps {
   activeCategory?: string;
 }
 
-export async function Navbar({ activeCategory }: NavbarProps) {
-  const market = await getMarketData();
+export function Navbar({ activeCategory }: NavbarProps) {
 
   return (
     <>
@@ -34,35 +33,7 @@ export async function Navbar({ activeCategory }: NavbarProps) {
                 day: "numeric",
               })}
             </span>
-            {market && (
-              <div className="flex items-center gap-4">
-                <div className="w-px h-3 bg-on-primary/20" />
-                {(
-                  [
-                    { label: "USD", ...market.usd },
-                    { label: "EUR", ...market.eur },
-                    { label: "Altın", ...market.altin },
-                  ] as const
-                ).map(({ label, value, change, trend }) => (
-                  <span key={label} className="flex items-center gap-1">
-                    <span className="opacity-50 font-bold tracking-wider">{label}</span>
-                    <span className="font-semibold">{value}</span>
-                    <span
-                      className={
-                        trend === "up"
-                          ? "text-green-300"
-                          : trend === "down"
-                            ? "text-red-300"
-                            : "opacity-50"
-                      }
-                    >
-                      {trend === "up" ? "▲" : trend === "down" ? "▼" : "–"}
-                      {Math.abs(change).toFixed(2)}%
-                    </span>
-                  </span>
-                ))}
-              </div>
-            )}
+            <MarketTicker />
           </div>
           <div className="flex items-center gap-6">
             <Link
