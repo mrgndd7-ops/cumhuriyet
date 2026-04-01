@@ -135,6 +135,7 @@ export async function getHomepageArticles(): Promise<
         "dunya",
         "yasam",
         "kultur-sanat",
+        "analiz",
       ] as CategorySlug[]
     ).map(async (slug) => {
       const articles = await getArticlesByCategory(slug, 6);

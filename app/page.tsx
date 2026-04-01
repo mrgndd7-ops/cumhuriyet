@@ -154,6 +154,16 @@ export default async function HomePage() {
             articles={homepageArticles.yasam}
           />
         )}
+
+        {/* Analiz section — full width */}
+        {homepageArticles.analiz && homepageArticles.analiz.length > 0 && (
+          <CategorySection
+            title="Analiz"
+            href="/analiz"
+            articles={homepageArticles.analiz}
+            variant="analytical"
+          />
+        )}
       </main>
 
       <Footer />

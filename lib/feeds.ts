@@ -28,7 +28,11 @@ export const FEED_CONFIGS: Record<CategorySlug, FeedConfig> = {
   dunya: {
     slug: "dunya",
     label: "Dünya",
-    feedUrls: ["https://www.gazeteduvar.com.tr/rss/dunya"],
+    feedUrls: [
+      "https://www.hurriyet.com.tr/rss/dunya",
+      "https://www.sabah.com.tr/rss/dunya.xml",
+      "https://www.gazeteduvar.com.tr/rss/dunya",
+    ],
   },
   yasam: {
     slug: "yasam",
@@ -46,7 +50,10 @@ export const FEED_CONFIGS: Record<CategorySlug, FeedConfig> = {
   analiz: {
     slug: "analiz",
     label: "Analiz",
-    feedUrls: ["https://www.gazeteduvar.com.tr/export/rss"],
+    feedUrls: [
+      "https://www.hurriyet.com.tr/rss/yazarlar",
+      "https://www.sabah.com.tr/rss/yazarlar.xml",
+    ],
   },
 };
 
