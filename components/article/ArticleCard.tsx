@@ -1,11 +1,43 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import type { Article } from "@/types";
 import { formatRelativeTime } from "@/lib/utils";
 
 interface ArticleCardProps {
   article: Article;
   variant?: "default" | "compact" | "featured";
+}
+
+function ArticleImage({
+  src,
+  alt,
+  width,
+  height,
+  className,
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  className?: string;
+}) {
+  const [failed, setFailed] = useState(false);
+
+  if (failed) return null;
+
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      className={className}
+      onError={() => setFailed(true)}
+    />
+  );
 }
 
 export function ArticleCard({
@@ -19,7 +51,7 @@ export function ArticleCard({
       <Link href={href} className="flex gap-4 group">
         {article.imageUrl && (
           <div className="w-24 h-24 flex-shrink-0 overflow-hidden rounded-md">
-            <Image
+            <ArticleImage
               src={article.imageUrl}
               alt={article.imageAlt ?? article.title}
               width={96}
@@ -43,17 +75,21 @@ export function ArticleCard({
   if (variant === "featured") {
     return (
       <Link href={href} className="block group cursor-pointer">
-        {article.imageUrl && (
-          <div className="aspect-video overflow-hidden rounded-lg mb-4">
-            <Image
+        <div className="aspect-video overflow-hidden rounded-lg mb-4 bg-surface-container-low flex items-center justify-center">
+          {article.imageUrl ? (
+            <ArticleImage
               src={article.imageUrl}
               alt={article.imageAlt ?? article.title}
               width={600}
               height={338}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
-          </div>
-        )}
+          ) : (
+            <span className="text-display-sm font-extrabold font-headline text-primary/10 select-none uppercase tracking-widest">
+              {article.category.label}
+            </span>
+          )}
+        </div>
         <span className="text-secondary font-bold text-label-sm tracking-widest uppercase mb-2 block">
           {article.category.label}
         </span>
