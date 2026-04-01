@@ -21,7 +21,16 @@ export const REVALIDATE_SECONDS = 3600;
 
 async function fetchFeed(feedUrl: string): Promise<RSSItem[]> {
   try {
-    const feed = await parser.parseURL(feedUrl);
+    const res = await fetch(feedUrl, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (compatible; CumhuriyetBot/1.0)",
+        "Accept": "application/rss+xml, application/xml, text/xml, */*",
+      },
+      next: { revalidate: REVALIDATE_SECONDS },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const xml = await res.text();
+    const feed = await parser.parseString(xml);
     return feed.items ?? [];
   } catch (error) {
     console.error(`[rss] Failed to fetch feed: ${feedUrl}`, error);
@@ -49,8 +58,12 @@ function mapRSSItemToArticle(
     ? stripHtml(item.contentSnippet).slice(0, 280)
     : stripHtml(rawContent).slice(0, 280);
 
+  const mc = item["media:content"] as { $?: { url?: string } } | undefined;
+  const mt = item["media:thumbnail"] as { $?: { url?: string } } | undefined;
   const imageUrl =
-    (item["media:content"] as { $?: { url?: string } } | undefined)?.$?.url ??
+    mc?.$?.url ??
+    mt?.$?.url ??
+    item.enclosure?.url ??
     extractImageFromContent(rawContent);
 
   const publishedAt = item.isoDate ?? item.pubDate ?? new Date().toISOString();

@@ -64,6 +64,13 @@ export interface RSSItem {
       medium?: string;
     };
   };
+  "media:thumbnail"?: {
+    $: {
+      url: string;
+      width?: string;
+      height?: string;
+    };
+  };
 }
 
 export interface ParsedFeed {
