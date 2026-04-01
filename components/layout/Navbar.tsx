@@ -35,14 +35,6 @@ export function Navbar({ activeCategory }: NavbarProps) {
             </span>
             <MarketTicker />
           </div>
-          <div className="flex items-center gap-6">
-            <Link
-              href="/rss"
-              className="flex items-center gap-1 opacity-70 hover:opacity-100 transition-opacity"
-            >
-              RSS
-            </Link>
-          </div>
         </div>
       </div>
 
@@ -79,15 +71,6 @@ export function Navbar({ activeCategory }: NavbarProps) {
                 </svg>
               </button>
 
-              <div className="hidden md:flex items-center gap-2 ml-2">
-                <div className="h-5 w-px bg-outline-variant/40" />
-                <button className="px-4 py-1.5 text-sm font-medium text-on-surface hover:bg-surface-container rounded-md transition-colors">
-                  Giriş
-                </button>
-                <button className="px-4 py-1.5 text-sm font-bold bg-secondary text-on-secondary rounded-md hover:opacity-90 transition-opacity">
-                  Abone Ol
-                </button>
-              </div>
             </div>
           </div>
 
