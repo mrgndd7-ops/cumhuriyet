@@ -5,6 +5,7 @@ import { ArticleCard } from "@/components/article/ArticleCard";
 import { CategorySection } from "@/components/ui/CategorySection";
 import { BreakingNewsBand } from "@/components/ui/BreakingNewsBand";
 import { getHomepageArticles, getLatestArticles } from "@/lib/rss";
+import { FEATURED_ARTICLE } from "@/lib/featured";
 
 export const revalidate = 3600;
 
@@ -15,7 +16,7 @@ export default async function HomePage() {
   ]);
 
   const breakingArticle = latestArticles[0];
-  const heroArticle = homepageArticles.gundem?.[0];
+  const heroArticle = FEATURED_ARTICLE;
   const heroSideArticles = [
     homepageArticles.ekonomi?.[0],
     homepageArticles.dunya?.[0],
@@ -32,7 +33,7 @@ export default async function HomePage() {
         {/* Hero: Asymmetric 8/4 editorial grid */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-8">
-            {heroArticle && <ArticleHero article={heroArticle} />}
+            <ArticleHero article={heroArticle} href="/ozel" />
           </div>
 
           <div className="lg:col-span-4 space-y-4">

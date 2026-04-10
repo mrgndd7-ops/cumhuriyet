@@ -5,10 +5,11 @@ import { formatRelativeTime } from "@/lib/utils";
 
 interface ArticleHeroProps {
   article: Article;
+  href?: string;
 }
 
-export function ArticleHero({ article }: ArticleHeroProps) {
-  const href = `/article/${article.slug}?category=${article.category.slug}`;
+export function ArticleHero({ article, href: hrefProp }: ArticleHeroProps) {
+  const href = hrefProp ?? `/article/${article.slug}?category=${article.category.slug}`;
 
   return (
     <Link
