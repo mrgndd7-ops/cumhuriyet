@@ -29,7 +29,7 @@ export function ArticleHero({ article, href: hrefProp }: ArticleHeroProps) {
       <div className="absolute inset-0 hero-gradient" />
       <div className="relative p-8 lg:p-12 max-w-2xl">
         <span className="inline-block bg-secondary text-on-secondary px-3 py-1 text-label-sm font-bold tracking-[0.2em] uppercase rounded-md mb-4">
-          {article.category.label} • Özel
+          SON DAKİKA
         </span>
         <h2 className="text-headline-md lg:text-display-sm font-extrabold text-white font-headline leading-tight tracking-tight mb-3 text-balance">
           {article.title}
