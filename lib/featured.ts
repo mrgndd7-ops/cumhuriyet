@@ -8,7 +8,7 @@ import type { Article } from "@/types";
 export const FEATURED_ARTICLE: Article = {
   id: "featured-001",
   slug: "ozel",
-  title: "Başlığı buraya yazın",
+  title: "Bu Adaletsizliğe Dur Diyen Kimse Olmayacak Mı?",
   description:
     "Haberin kısa özetini veya giriş paragrafını buraya yazın. Bu metin hem ana sayfada hem de haber sayfasında görünür.",
   content: `<p>Haber içeriğini buraya yazın. HTML formatında olabilir.</p>
