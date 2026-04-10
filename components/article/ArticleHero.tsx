@@ -42,8 +42,6 @@ export function ArticleHero({ article, href: hrefProp }: ArticleHeroProps) {
         </p>
         <div className="flex items-center gap-4 text-white/60 text-body-sm">
           <span>{formatRelativeTime(article.publishedAt)}</span>
-          <span>·</span>
-          <span>{article.readingTimeMinutes} dk okuma</span>
         </div>
       </div>
     </Link>
