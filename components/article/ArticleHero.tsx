@@ -31,9 +31,12 @@ export function ArticleHero({ article, href: hrefProp }: ArticleHeroProps) {
         <span className="inline-block bg-secondary text-on-secondary px-3 py-1 text-label-sm font-bold tracking-[0.2em] uppercase rounded-md mb-4">
           {article.category.label} • Özel
         </span>
-        <h2 className="text-headline-md lg:text-display-sm font-extrabold text-white font-headline leading-tight tracking-tight mb-6 text-balance">
+        <h2 className="text-headline-md lg:text-display-sm font-extrabold text-white font-headline leading-tight tracking-tight mb-3 text-balance">
           {article.title}
         </h2>
+        <p className="text-white/70 text-body-sm font-medium mb-6">
+          Yazar: {article.author}
+        </p>
         <p className="text-white/80 text-body-lg leading-relaxed mb-6 line-clamp-2">
           {article.description}
         </p>
