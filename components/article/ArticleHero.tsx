@@ -34,7 +34,7 @@ export function ArticleHero({ article, href: hrefProp }: ArticleHeroProps) {
         <h2 className="text-headline-md lg:text-display-sm font-extrabold text-white font-headline leading-tight tracking-tight mb-3 text-balance">
           {article.title}
         </h2>
-        <p className="text-white/70 text-body-sm font-medium mb-6">
+        <p className="text-white/70 text-body-sm font-bold mb-6">
           Yazar: {article.author}
         </p>
         <p className="text-white/80 text-body-lg leading-relaxed mb-6 line-clamp-2">
